@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://mepr27nttel"]
+
+[ext_resource type="Texture2D" uid="uid://3i660u2kr3w1" path="res://assets/sprites/tamais/agumonEnemy/AgumonEnemy1.png" id="1_md0e3"]
+[ext_resource type="Texture2D" uid="uid://crowurartk7qv" path="res://assets/sprites/tamais/agumonEnemy/AgumonEnemy2.png" id="2_4ra3w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5uy6h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_md0e3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4ra3w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4w8v"]
+size = Vector2(160, 150)
+
+[node name="enemy" type="Area2D"]
+collision_layer = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5uy6h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_c4w8v")
