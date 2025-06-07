@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://mepr27nttel"]
+[gd_scene load_steps=6 format=3 uid="uid://mepr27nttel"]
 
+[ext_resource type="Script" uid="uid://ccvr60k052bn" path="res://scripts/enemy.gd" id="1_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://3i660u2kr3w1" path="res://assets/sprites/tamais/agumonEnemy/AgumonEnemy1.png" id="1_md0e3"]
 [ext_resource type="Texture2D" uid="uid://crowurartk7qv" path="res://assets/sprites/tamais/agumonEnemy/AgumonEnemy2.png" id="2_4ra3w"]
 
@@ -21,7 +22,7 @@ animations = [{
 size = Vector2(160, 150)
 
 [node name="enemy" type="Area2D"]
-collision_layer = 2
+script = ExtResource("1_4ra3w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5uy6h")
