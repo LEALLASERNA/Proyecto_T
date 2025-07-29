@@ -526,4 +526,4 @@ tile_set = SubResource("TileSet_tbgi4")
 position = Vector2(360, 641)
 
 [node name="Player" parent="." instance=ExtResource("2_jyhfs")]
-position = Vector2(360, 982)
+position = Vector2(353, 982)
