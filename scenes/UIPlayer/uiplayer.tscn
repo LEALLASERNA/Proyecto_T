@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://k0xhq24yl2lt"]
+
+[ext_resource type="Script" uid="uid://yqfywhbhcx85" path="res://scenes/UIPlayer/uiplayer.gd" id="1_kh8mo"]
+[ext_resource type="Texture2D" uid="uid://c6qjn1wp11785" path="res://assets/sprites/ui/Barra_Hambre_00.png" id="2_kh8mo"]
+[ext_resource type="Texture2D" uid="uid://hhihsoay626h" path="res://assets/sprites/ui/Barra_Hambre_100.png" id="3_d8mnu"]
+[ext_resource type="Texture2D" uid="uid://bnblhxirekn4l" path="res://assets/sprites/ui/Barra_Hambre_80.png" id="4_bjsb0"]
+[ext_resource type="Texture2D" uid="uid://ck873d667xr31" path="res://assets/sprites/ui/Barra_Hambre_90.png" id="4_d8mnu"]
+[ext_resource type="Texture2D" uid="uid://bduj2l21qkd7j" path="res://assets/sprites/ui/Barra_Hambre_70.png" id="5_hlnr5"]
+[ext_resource type="Texture2D" uid="uid://cggg2uibauf75" path="res://assets/sprites/ui/Barra_Hambre_60.png" id="6_eljqo"]
+
+[node name="UIPlayer" type="CanvasLayer"]
+script = ExtResource("1_kh8mo")
+
+[node name="HungerBar" type="TextureProgressBar" parent="."]
+offset_right = 161.0
+offset_bottom = 17.0
+texture_under = ExtResource("2_kh8mo")
+
+[node name="Barra_Hambre_100" type="Sprite2D" parent="HungerBar"]
+position = Vector2(344.5, 81)
+scale = Vector2(4.28125, 7)
+texture = ExtResource("3_d8mnu")
+
+[node name="Barra_Hambre_90" type="Sprite2D" parent="HungerBar"]
+position = Vector2(350, 232)
+scale = Vector2(4.33125, 11.6875)
+texture = ExtResource("4_d8mnu")
+
+[node name="Barra_Hambre_80" type="Sprite2D" parent="HungerBar"]
+position = Vector2(339.25, 385.25)
+scale = Vector2(4.05937, 6.71875)
+texture = ExtResource("4_bjsb0")
+
+[node name="Barra_Hambre_70" type="Sprite2D" parent="HungerBar"]
+position = Vector2(326.75, 476.75)
+scale = Vector2(4.04062, 4.40625)
+texture = ExtResource("5_hlnr5")
+
+[node name="Barra_Hambre_60" type="Sprite2D" parent="HungerBar"]
+position = Vector2(311.25, 576.75)
+scale = Vector2(3.94688, 7.78125)
+texture = ExtResource("6_eljqo")

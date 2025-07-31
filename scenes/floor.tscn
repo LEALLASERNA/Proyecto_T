@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cvvmucetdkmg8"]
 
-[ext_resource type="Texture2D" uid="uid://hhihsoay626h" path="res://assets/sprites/ui/Barra_Hambre_1010.png" id="1_ukw5w"]
+[ext_resource type="Texture2D" uid="uid://hhihsoay626h" path="res://assets/sprites/ui/Barra_Hambre_100.png" id="1_ukw5w"]
 
 [node name="floor" type="StaticBody2D"]
 

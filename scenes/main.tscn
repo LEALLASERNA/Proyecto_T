@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://typ57ynk7jd5" path="res://assets/sprites/tiles/floor 720x280.png" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://j8sd3mnipgod" path="res://scenes/player.tscn" id="2_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://bhvcfb1cef0il" path="res://assets/sprites/tiles/Tailset.png" id="2_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://cautvhrpt8e8n" path="res://scenes/ui/HungerBar/HungerBar.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://k0xhq24yl2lt" path="res://scenes/UIPlayer/uiplayer.tscn" id="4_jyhfs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
 texture = ExtResource("1_sugp2")
@@ -527,7 +527,6 @@ tile_set = SubResource("TileSet_tbgi4")
 position = Vector2(360, 641)
 
 [node name="Player" parent="." instance=ExtResource("2_jyhfs")]
-position = Vector2(353, 982)
+position = Vector2(368, 980)
 
-[node name="HungerBar" parent="." instance=ExtResource("4_jyhfs")]
-position = Vector2(364, 791)
+[node name="UIPlayer" parent="." instance=ExtResource("4_jyhfs")]

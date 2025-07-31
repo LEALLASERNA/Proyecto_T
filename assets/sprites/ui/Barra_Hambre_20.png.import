@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0cmb7mk1tfur"
-path="res://.godot/imported/Barra_Hambre_0010.png-a96d49c34f76f9631377019a567912dc.ctex"
+uid="uid://c7jdme4nbv848"
+path="res://.godot/imported/Barra_Hambre_20.png-83d9818876ccfe4f35bdeea9486c4e0f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ui/Barra_Hambre_0010.png"
-dest_files=["res://.godot/imported/Barra_Hambre_0010.png-a96d49c34f76f9631377019a567912dc.ctex"]
+source_file="res://assets/sprites/ui/Barra_Hambre_20.png"
+dest_files=["res://.godot/imported/Barra_Hambre_20.png-83d9818876ccfe4f35bdeea9486c4e0f.ctex"]
 
 [params]
 
