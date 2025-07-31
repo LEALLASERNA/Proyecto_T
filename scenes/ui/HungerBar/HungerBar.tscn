@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cautvhrpt8e8n"]
+
+[ext_resource type="Script" uid="uid://kwj1cqvamgdx" path="res://scenes/ui/HungerBar/HungerBar.gd" id="1_exqfr"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_48r43"]
+
+[node name="HungerBar" type="Node2D"]
+script = ExtResource("1_exqfr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_48r43")

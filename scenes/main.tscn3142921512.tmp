@@ -529,5 +529,5 @@ position = Vector2(360, 641)
 [node name="Player" parent="." instance=ExtResource("2_jyhfs")]
 position = Vector2(353, 982)
 
-[node name="HungerBar" parent="." instance=ExtResource("4_jyhfs")]
-position = Vector2(364, 791)
+[node name="ProgressBar" parent="." instance=ExtResource("4_jyhfs")]
+position = Vector2(244, 242)

@@ -1,71 +1,63 @@
 extends CharacterBody2D
 
 # Referencias a nodos de UI
-@onready var hunger_bar := get_node("../UI/HungerBar")
-@onready var feed_button := get_node("../UI/FeedButton")
+@onready var hunger_bar := get_tree().get_current_scene().get_node("HungerBar")
 
 # Sistema de movimiento
-var speed = 100 #Velocidad normal
-var direction: int = -1 #Direccion: 1 = derecha, -1 = izquierda
-var gravity: float = 600.0 #Gravedad
-var jump_force: float = 300.0 #Fuerza del salto
+var speed: float = 100.0
+var direction: int = -1 # Dirección inicial (izquierda)
+var gravity: float = 600.0
+var jump_force: float = 300.0
 
 # Sistema de hambre
-var hunger: int = 100 #Hambre total
-var hunger_decrease_rate: int = 5 #Ratio de decrecimiento
-var feed_amount: int = 20 #Cantidad de alimento
+var hunger: float = 100.0
+var max_hunger: float = 100.0
+var hunger_decrease_rate: float = 10.0  # Cantidad por segundo
 
 func _ready() -> void:
+	print("Buscando barra de hambre:", hunger_bar)
 	$AnimatedSprite2D.play("walk")
+	update_hunger_bar()
 
-func _physics_process(delta):
-	
-	# Gravedad
+func _physics_process(delta: float) -> void:
+	# Movimiento vertical (salto y gravedad)
 	if is_on_floor():
-		velocity.y = 0  # Detener caída si está en el suelo
-		print("Está en el suelo:", is_on_floor())
-		if Input.is_action_pressed("ui_accept"):# Saltar solo si está en el suelo y se presiona la tecla
+		velocity.y = 0
+		if Input.is_action_pressed("ui_accept"):
 			velocity.y = -jump_force
 	else:
 		velocity.y += gravity * delta
-		print("Está en el suelo:", is_on_floor())
 
-	#Movimineto horizontal
+	# Movimiento horizontal automático
 	velocity.x = direction * speed
 	move_and_slide()
 
-	#Detectar bordes de la pantalla para cambiar dirección
-	var screen_size = get_viewport_rect().size #Reconoce el tamaño de la pantalla y lo convierte en Vector2
+	# Cambiar dirección al llegar a los bordes de la pantalla
+	var screen_size = get_viewport_rect().size
 	var position_in_screen = global_position.x
 
 	if position_in_screen <= 100:
 		direction = 1
 		$AnimatedSprite2D.play("walk")
 		$AnimatedSprite2D.flip_h = true
-
-	elif position_in_screen >= screen_size.x -100:
+	elif position_in_screen >= screen_size.x - 100:
 		direction = -1
 		$AnimatedSprite2D.play("walk")
 		$AnimatedSprite2D.flip_h = false
 
-# Funcion integrada que se ejecuta en cada frame. DELTA: según el valor del tiempo no del frame
 func _process(delta: float) -> void:
-	# Reducir hambre con el tiempo
+	# Disminuir hambre con el tiempo
 	hunger -= hunger_decrease_rate * delta
-	hunger = clamp(hunger, 0, 100)
-	#hunger_bar.value = hunger
+	hunger = clamp(hunger, 0, max_hunger)
+	update_hunger_bar()
 
 	if hunger == 0:
 		print("¡Tu Tamagotchi tiene hambre!")
-		# Aquí puedes poner animación de tristeza o Game Over
+		# Aquí puedes añadir animación de tristeza, sonido, etc.
 
-# Funcion _on_<NombreDelNodo>_<NombreDeLaSeñal>()
-func _on_feed_pressed() -> void:
-	hunger += feed_amount
-	hunger = clamp(hunger, 0, 100)
-	#hunger_bar.value = hunger
-	print("¡Alimentado! Hunger ahora:", hunger)
-
-func _on_area_entered(area: CharacterBody2D) -> void:
-	print("choque con un enemigo")
-	area.queue_free()
+func update_hunger_bar() -> void:
+	if hunger_bar:
+		print("Actualizando barra con hambre:", hunger)
+		hunger_bar.set_hunger(hunger)
+	else:
+		print("NO SE ENCONTRÓ el nodo HungerBar")
