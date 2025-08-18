@@ -19,7 +19,7 @@ func set_hunger(value: float) -> void:
 		if child is Sprite2D:
 			child.visible = false
 
-	# Mostrar el nodo correspondiente
+	# Mostrar el nodo/sprite correspondiente
 	var nombreNodo := "Barra_Hambre_%02d" % percent
 	var target_node := hunger_bar.get_node_or_null(nombreNodo) 
 
