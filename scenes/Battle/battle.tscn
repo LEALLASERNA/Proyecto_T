@@ -1,0 +1,373 @@
+[gd_scene load_steps=32 format=3 uid="uid://b5upkdyrnfjl2"]
+
+[ext_resource type="Script" uid="uid://5w3fsslvtwsb" path="res://scenes/Battle/battle.gd" id="1_ha178"]
+[ext_resource type="SpriteFrames" uid="uid://bo5gw23lpckyb" path="res://resources/player_sprite_frames_baby.tres" id="2_5f8bu"]
+[ext_resource type="Texture2D" uid="uid://nfsrnxp1sqcm" path="res://assets/sprites/T/#0000/Tamai0010_angry1.png" id="3_dhx51"]
+[ext_resource type="SpriteFrames" uid="uid://rrhnxx80t0q8" path="res://resources/health_sprite_frames.tres" id="3_ttnxv"]
+[ext_resource type="Texture2D" uid="uid://yh7s0k4la210" path="res://assets/sprites/ui/buttons/BackButton.png" id="4_8scbo"]
+[ext_resource type="Texture2D" uid="uid://cj2e6yl8g5usj" path="res://assets/sprites/ui/buttons/StartButton.png" id="4_peapi"]
+[ext_resource type="Texture2D" uid="uid://dfhty7k8nivuk" path="res://assets/sprites/T/#0000/Tamai0010_angry2.png" id="4_ttnxv"]
+[ext_resource type="Texture2D" uid="uid://cxqjsc76nm076" path="res://assets/sprites/T/#0000/Tamai0010_fight1.png" id="5_eloa8"]
+[ext_resource type="Texture2D" uid="uid://cl5dxyexg7kra" path="res://assets/sprites/T/#0000/Tamai0010_fight2.png" id="6_bkdmu"]
+[ext_resource type="Texture2D" uid="uid://dfidio32ldfd7" path="res://assets/sprites/backgounds/BackgroundDevice.png" id="6_xhdm5"]
+[ext_resource type="Texture2D" uid="uid://jc8mrlr7lgmp" path="res://assets/sprites/backgounds/Forest_Floor_001.png" id="7_i3j6n"]
+[ext_resource type="Texture2D" uid="uid://b8go7mrlawkaj" path="res://assets/sprites/T/#0000/Tamai0010_happy1.png" id="7_i4kcb"]
+[ext_resource type="Texture2D" uid="uid://cknf5tc6ldffs" path="res://assets/sprites/ui/Boards/ResultsBoard_002.png" id="8_i3j6n"]
+[ext_resource type="Texture2D" uid="uid://xdjncu4jcxt8" path="res://assets/sprites/T/#0000/Tamai0010_happy2.png" id="8_n60c3"]
+[ext_resource type="Texture2D" uid="uid://dp4glyvagltde" path="res://assets/sprites/T/#0000/Tamai0010_stant2.png" id="9_j3654"]
+[ext_resource type="Texture2D" uid="uid://cgffhysl3r45x" path="res://assets/sprites/ui/Boards/Instruction_Strenght_Board.png" id="9_o023q"]
+[ext_resource type="Texture2D" uid="uid://fpciu6b57yqu" path="res://assets/sprites/T/#0000/Tamai0010_stant1.png" id="10_8w0g3"]
+[ext_resource type="Texture2D" uid="uid://bhx285ht4eik3" path="res://assets/sprites/magics/Magic001.png" id="10_f7rmk"]
+[ext_resource type="Texture2D" uid="uid://b7mr164avb6b4" path="res://assets/sprites/magics/Magic002.png" id="11_8cp08"]
+[ext_resource type="Texture2D" uid="uid://bvfj0ewkdqusv" path="res://assets/sprites/ui/buttons/StrenghtButton.png" id="11_8scbo"]
+[ext_resource type="Texture2D" uid="uid://k48cqo0wnox4" path="res://assets/sprites/magics/Magic003.png" id="12_8scbo"]
+[ext_resource type="Texture2D" uid="uid://xgfty82wjh76" path="res://assets/sprites/ui/buttons/DefenseButton.png" id="12_peapi"]
+[ext_resource type="Texture2D" uid="uid://dccvuohfqcp7f" path="res://assets/sprites/ui/buttons/EvasionButton.png" id="13_eexbl"]
+[ext_resource type="Texture2D" uid="uid://cmbs3x0w8pac7" path="res://assets/sprites/ui/clouds/Cloud_01.png" id="24_bkdmu"]
+[ext_resource type="Texture2D" uid="uid://bu6ctqbkqqlc7" path="res://assets/sprites/ui/clouds/Cloud_02.png" id="25_i4kcb"]
+[ext_resource type="Texture2D" uid="uid://bxs303nqmfemb" path="res://assets/sprites/ui/Backgrounds/Sky_001.png" id="26_i4kcb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sx6uo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_dhx51")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ttnxv")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_eloa8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bkdmu")
+}],
+"loop": false,
+"name": &"fight",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_i4kcb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_n60c3")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_j3654")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8w0g3")
+}],
+"loop": true,
+"name": &"standing",
+"speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_peapi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_f7rmk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8cp08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_8scbo")
+}],
+"loop": true,
+"name": &"defense",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_f7rmk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8cp08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_8scbo")
+}],
+"loop": true,
+"name": &"evasion",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_f7rmk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8cp08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_8scbo")
+}],
+"loop": true,
+"name": &"strenght",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7rmk"]
+size = Vector2(14.000006, 5.999996)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eexbl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_f7rmk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8cp08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_8scbo")
+}],
+"loop": true,
+"name": &"defense",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_f7rmk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8cp08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_8scbo")
+}],
+"loop": true,
+"name": &"evasion",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_f7rmk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8cp08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_8scbo")
+}],
+"loop": true,
+"name": &"strenght",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8cp08"]
+size = Vector2(14, 6)
+
+[node name="Battle" type="Node2D"]
+script = ExtResource("1_ha178")
+
+[node name="CloudMovement" type="Node2D" parent="."]
+z_index = -2
+position = Vector2(-200, 300)
+scale = Vector2(5, 5)
+
+[node name="Cloud1" type="Sprite2D" parent="CloudMovement"]
+texture = ExtResource("24_bkdmu")
+
+[node name="Cloud2" type="Sprite2D" parent="CloudMovement"]
+position = Vector2(4.9999995, 31.199999)
+texture = ExtResource("25_i4kcb")
+
+[node name="PlayerSide" type="Node2D" parent="."]
+position = Vector2(140, 828)
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="PlayerSide"]
+scale = Vector2(7, 7)
+sprite_frames = ExtResource("2_5f8bu")
+animation = &"angry"
+
+[node name="PlayerStatsLabel" type="Label" parent="PlayerSide"]
+visible = false
+offset_left = -216.0
+offset_top = -76.99999
+offset_right = -171.0
+offset_bottom = -16.999992
+text = "ST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerHealthSprite" type="AnimatedSprite2D" parent="PlayerSide"]
+position = Vector2(0, -150)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("3_ttnxv")
+animation = &"010"
+
+[node name="EnemySide" type="Node2D" parent="."]
+position = Vector2(580, 828)
+
+[node name="EnemySprite" type="AnimatedSprite2D" parent="EnemySide"]
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_sx6uo")
+animation = &"angry"
+flip_h = true
+
+[node name="EnemyHealthSprite" type="AnimatedSprite2D" parent="EnemySide"]
+position = Vector2(0, -150)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("3_ttnxv")
+animation = &"010"
+
+[node name="EnemyStatsLabel" type="Label" parent="EnemySide"]
+visible = false
+offset_left = 190.99997
+offset_top = -85.00003
+offset_right = 232.99997
+offset_bottom = -25.00003
+text = "St"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResultsWhiteBoard" type="Sprite2D" parent="."]
+position = Vector2(366, 222)
+scale = Vector2(8, 8)
+texture = ExtResource("8_i3j6n")
+
+[node name="InstructionBoard" type="Sprite2D" parent="."]
+position = Vector2(366, 222)
+scale = Vector2(8, 8)
+texture = ExtResource("9_o023q")
+
+[node name="FightLabel" type="Label" parent="."]
+offset_left = 134.0
+offset_top = 118.0
+offset_right = 590.0
+offset_bottom = 326.0
+text = "Fight"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResultLabel" type="Label" parent="."]
+offset_left = 134.0
+offset_top = 118.0
+offset_right = 590.0
+offset_bottom = 326.0
+text = "Result"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CongratulationLabel" type="Label" parent="."]
+offset_left = 134.0
+offset_top = 118.0
+offset_right = 590.0
+offset_bottom = 326.0
+text = "Congra"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerProjectile" type="Area2D" parent="."]
+visible = false
+position = Vector2(249, 827)
+scale = Vector2(7, 7)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerProjectile"]
+sprite_frames = SubResource("SpriteFrames_peapi")
+animation = &"defense"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerProjectile"]
+position = Vector2(3.8146973e-06, 7.6293945e-06)
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("RectangleShape2D_f7rmk")
+
+[node name="EnemyProjectile" type="Area2D" parent="."]
+visible = false
+position = Vector2(492.99997, 827)
+scale = Vector2(7, 7)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EnemyProjectile"]
+sprite_frames = SubResource("SpriteFrames_eexbl")
+animation = &"defense"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyProjectile"]
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_8cp08")
+
+[node name="BackgoudsFloor" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(360, 981)
+texture = ExtResource("7_i3j6n")
+
+[node name="BackgroundMain" type="Sprite2D" parent="."]
+position = Vector2(360, 640)
+texture = ExtResource("6_xhdm5")
+
+[node name="ActionButtons" type="HBoxContainer" parent="."]
+offset_left = 110.0
+offset_top = 1102.0
+offset_right = 238.0
+offset_bottom = 1142.0
+scale = Vector2(4, 4)
+alignment = 1
+
+[node name="StrengthButton" type="Button" parent="ActionButtons"]
+layout_mode = 2
+icon = ExtResource("11_8scbo")
+flat = true
+
+[node name="DefenseButton" type="Button" parent="ActionButtons"]
+layout_mode = 2
+icon = ExtResource("12_peapi")
+flat = true
+
+[node name="EvasionButton" type="Button" parent="ActionButtons"]
+layout_mode = 2
+icon = ExtResource("13_eexbl")
+flat = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StartButton" type="Button" parent="CanvasLayer"]
+offset_left = 253.0
+offset_top = 1120.0
+offset_right = 509.0
+offset_bottom = 1248.0
+icon = ExtResource("4_peapi")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="BackButton" type="Button" parent="CanvasLayer"]
+visible = false
+offset_left = 234.0
+offset_top = 1092.0
+offset_right = 490.0
+offset_bottom = 1274.0
+icon = ExtResource("4_8scbo")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Background" type="Node2D" parent="."]
+z_index = -5
+position = Vector2(360, 500)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(0.00014522672, -32.250008)
+scale = Vector2(22.5, 13.4765625)
+texture = ExtResource("26_i4kcb")
+
+[connection signal="area_entered" from="PlayerProjectile" to="." method="_on_player_projectile_area_entered"]
+[connection signal="area_entered" from="EnemyProjectile" to="." method="_on_enemy_projectile_area_entered"]
+[connection signal="pressed" from="ActionButtons/StrengthButton" to="." method="_on_strength_button_pressed"]
+[connection signal="pressed" from="ActionButtons/DefenseButton" to="." method="_on_defense_button_pressed"]
+[connection signal="pressed" from="ActionButtons/EvasionButton" to="." method="_on_evasion_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/BackButton" to="." method="_on_back_button_pressed"]

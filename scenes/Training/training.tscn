@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://6rqf802ny4sc"]
+
+[ext_resource type="Script" uid="uid://b0pyx633g0l3c" path="res://scenes/Training/training.gd" id="1_mdasn"]
+[ext_resource type="Texture2D" uid="uid://dfidio32ldfd7" path="res://assets/sprites/backgounds/BackgroundDevice.png" id="2_iwmqy"]
+[ext_resource type="Texture2D" uid="uid://cid5b8vj6qmq" path="res://assets/sprites/ui/StrengthButton.png" id="2_yec3g"]
+[ext_resource type="Texture2D" uid="uid://uipl0wj5xu1k" path="res://assets/sprites/ui/AgilityButton.png" id="3_iwmqy"]
+[ext_resource type="Texture2D" uid="uid://d0mh1fvod5roh" path="res://assets/sprites/ui/EvasionButton.png" id="4_j3jpc"]
+[ext_resource type="Texture2D" uid="uid://yh7s0k4la210" path="res://assets/sprites/ui/buttons/BackButton.png" id="6_j3jpc"]
+
+[node name="Training" type="CanvasLayer"]
+script = ExtResource("1_mdasn")
+
+[node name="BackgorundDevice" type="Node2D" parent="."]
+z_index = -1
+
+[node name="BackgroundMain" type="Sprite2D" parent="BackgorundDevice"]
+position = Vector2(360, 640)
+texture = ExtResource("2_iwmqy")
+
+[node name="StrengthButton" type="Button" parent="."]
+offset_left = 160.0
+offset_top = 401.0
+offset_right = 571.0
+offset_bottom = 542.0
+text = "FUERZA"
+icon = ExtResource("2_yec3g")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="DefenceButton" type="Button" parent="."]
+offset_left = 163.0
+offset_top = 560.0
+offset_right = 578.0
+offset_bottom = 713.0
+size_flags_stretch_ratio = 0.0
+text = "DEFENS"
+icon = ExtResource("3_iwmqy")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="EvasionButton" type="Button" parent="."]
+offset_left = 158.0
+offset_top = 729.0
+offset_right = 575.0
+offset_bottom = 885.0
+text = "EVASION"
+icon = ExtResource("4_j3jpc")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="BackButton" type="Button" parent="."]
+offset_left = 253.0
+offset_top = 1120.0
+offset_right = 509.0
+offset_bottom = 1248.0
+icon = ExtResource("6_j3jpc")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Tittle" type="Label" parent="."]
+offset_left = 154.0
+offset_top = 150.0
+offset_right = 554.0
+offset_bottom = 358.0
+
+[connection signal="pressed" from="StrengthButton" to="." method="_on_strength_button_pressed"]
+[connection signal="pressed" from="DefenceButton" to="." method="_on_defence_button_pressed"]
+[connection signal="pressed" from="EvasionButton" to="." method="_on_evasion_button_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

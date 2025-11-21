@@ -12,8 +12,12 @@ config_version=5
 
 config/name="TAMAI"
 run/main_scene="uid://biru6kbioe6dg"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameData="*res://scripts/game_data.gd"
 
 [display]
 
@@ -23,6 +27,17 @@ window/size/window_width_override=360
 window/size/window_height_override=640
 window/stretch/mode="viewport"
 window/handheld/orientation=1
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "yellow",
+"res://scenes/": "red"
+}
+
+[gui]
+
+theme/custom="uid://d2odbwsyaojau"
 
 [rendering]
 

@@ -1,0 +1,163 @@
+[gd_scene load_steps=20 format=3 uid="uid://k0xhq24yl2lt"]
+
+[ext_resource type="Script" uid="uid://yqfywhbhcx85" path="res://scenes/UI/uiplayer.gd" id="1_kh8mo"]
+[ext_resource type="Texture2D" uid="uid://c6qjn1wp11785" path="res://assets/sprites/ui/Barra_Hambre_00.png" id="2_kh8mo"]
+[ext_resource type="Texture2D" uid="uid://bxs303nqmfemb" path="res://assets/sprites/ui/Backgrounds/Sky_001.png" id="2_se8cr"]
+[ext_resource type="Texture2D" uid="uid://cn2rl2ceu3g75" path="res://assets/sprites/ui/Barra_Hambre_100.png" id="3_d8mnu"]
+[ext_resource type="Texture2D" uid="uid://cr04vacegxyj5" path="res://assets/sprites/ui/Barra_Felicidad_00.png" id="4_g5rjg"]
+[ext_resource type="Texture2D" uid="uid://tlhhrhj5nvx2" path="res://assets/sprites/ui/Barra_Felicidad_100.png" id="5_7afpf"]
+[ext_resource type="Texture2D" uid="uid://t40g2m7deoe4" path="res://assets/sprites/ui/IconoHambre.png" id="5_pnd0s"]
+[ext_resource type="Texture2D" uid="uid://dobtfb52asvt" path="res://assets/sprites/ui/IconoFelicidad.png" id="8_t5msk"]
+[ext_resource type="Texture2D" uid="uid://dfidio32ldfd7" path="res://assets/sprites/backgounds/BackgroundDevice.png" id="10_cygvl"]
+[ext_resource type="Texture2D" uid="uid://jc8mrlr7lgmp" path="res://assets/sprites/backgounds/Forest_Floor_001.png" id="10_m70ty"]
+[ext_resource type="Texture2D" uid="uid://oro1nyons621" path="res://assets/sprites/ui/buttons/TrainerButton.png" id="11_se8cr"]
+[ext_resource type="Texture2D" uid="uid://bh4qaxhnj20p1" path="res://assets/sprites/ui/buttons/FeedButton.png" id="12_dvv7c"]
+[ext_resource type="Texture2D" uid="uid://cmbs3x0w8pac7" path="res://assets/sprites/ui/clouds/Cloud_01.png" id="13_dvv7c"]
+[ext_resource type="Texture2D" uid="uid://bu6ctqbkqqlc7" path="res://assets/sprites/ui/clouds/Cloud_02.png" id="14_c1e5k"]
+[ext_resource type="Texture2D" uid="uid://chqkt3d1bi5cd" path="res://assets/sprites/ui/bushs/Bush_01.png" id="15_14bs3"]
+[ext_resource type="Texture2D" uid="uid://p6rhg32rjhi0" path="res://assets/sprites/ui/bushs/Bush_02.png" id="16_3orsu"]
+[ext_resource type="Texture2D" uid="uid://ue1qxvwyed71" path="res://assets/sprites/ui/bushs/Bush_03.png" id="17_jh01r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m70ty"]
+size = Vector2(721, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_se8cr"]
+size = Vector2(720, 54)
+
+[node name="UIPlayer" type="CanvasLayer"]
+layer = -1
+script = ExtResource("1_kh8mo")
+
+[node name="Background" type="Node2D" parent="."]
+z_index = -1
+position = Vector2(360, 500)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(0.00014522672, -32.250008)
+scale = Vector2(22.5, 13.4765625)
+texture = ExtResource("2_se8cr")
+
+[node name="HappinessIcon" type="Sprite2D" parent="."]
+light_mask = 0
+z_index = -1
+position = Vector2(122, 205)
+scale = Vector2(4.78125, 4.9062495)
+texture = ExtResource("8_t5msk")
+
+[node name="HungerIcon" type="Sprite2D" parent="."]
+light_mask = 0
+z_index = -1
+position = Vector2(121, 120)
+scale = Vector2(5, 5)
+texture = ExtResource("5_pnd0s")
+
+[node name="HappinessBar" type="TextureProgressBar" parent="."]
+z_index = -1
+offset_left = 151.0
+offset_top = 184.0
+offset_right = 407.0
+offset_bottom = 231.0
+step = 5.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("4_g5rjg")
+texture_progress = ExtResource("5_7afpf")
+
+[node name="HungerBar" type="TextureProgressBar" parent="."]
+z_index = -1
+offset_left = 153.0
+offset_top = 97.0
+offset_right = 403.0
+offset_bottom = 147.0
+step = 5.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_kh8mo")
+texture_progress = ExtResource("3_d8mnu")
+texture_progress_offset = Vector2(1, -1)
+
+[node name="BackgorundDevice" type="Node2D" parent="."]
+z_index = -1
+
+[node name="BackgroundMain" type="Sprite2D" parent="BackgorundDevice"]
+position = Vector2(360, 640)
+texture = ExtResource("10_cygvl")
+
+[node name="TrainerButton" type="Button" parent="."]
+offset_left = 482.0
+offset_top = 1100.0
+offset_right = 652.0
+offset_bottom = 1270.0
+icon = ExtResource("11_se8cr")
+flat = true
+expand_icon = true
+
+[node name="FeedButton" type="Button" parent="."]
+offset_left = 95.0
+offset_top = 1100.0
+offset_right = 265.0
+offset_bottom = 1270.0
+icon = ExtResource("12_dvv7c")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="CloudMovement" type="Node2D" parent="."]
+z_index = -2
+position = Vector2(-200, 300)
+scale = Vector2(5, 5)
+
+[node name="Cloud1" type="Sprite2D" parent="CloudMovement"]
+texture = ExtResource("13_dvv7c")
+
+[node name="Cloud2" type="Sprite2D" parent="CloudMovement"]
+position = Vector2(4.9999995, 31.199999)
+texture = ExtResource("14_c1e5k")
+
+[node name="BushMovement" type="Node2D" parent="."]
+z_index = -2
+position = Vector2(-200, 778)
+scale = Vector2(7, 7)
+
+[node name="Bush1" type="Sprite2D" parent="BushMovement"]
+texture = ExtResource("15_14bs3")
+
+[node name="Bush2" type="Sprite2D" parent="BushMovement"]
+texture = ExtResource("16_3orsu")
+
+[node name="Bush3" type="Sprite2D" parent="BushMovement"]
+texture = ExtResource("17_jh01r")
+
+[node name="GroundMovement" type="Node2D" parent="."]
+
+[node name="Ground1" type="StaticBody2D" parent="GroundMovement"]
+z_index = -1
+position = Vector2(0, 981)
+
+[node name="BackgroudFloor" type="Sprite2D" parent="GroundMovement/Ground1"]
+z_index = -1
+texture = ExtResource("10_m70ty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundMovement/Ground1"]
+visible = false
+z_index = -1
+position = Vector2(0.5, -69)
+shape = SubResource("RectangleShape2D_m70ty")
+
+[node name="Ground2" type="StaticBody2D" parent="GroundMovement"]
+z_index = -1
+position = Vector2(720, 981)
+
+[node name="BackgroundFloor" type="Sprite2D" parent="GroundMovement/Ground2"]
+z_index = -1
+texture = ExtResource("10_m70ty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundMovement/Ground2"]
+visible = false
+z_index = -1
+position = Vector2(0, -69)
+shape = SubResource("RectangleShape2D_se8cr")
+
+[connection signal="pressed" from="TrainerButton" to="." method="_on_trainer_button_pressed"]
+[connection signal="pressed" from="FeedButton" to="." method="_on_feed_button_pressed"]

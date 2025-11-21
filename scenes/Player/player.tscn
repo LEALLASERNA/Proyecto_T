@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://j8sd3mnipgod"]
+
+[ext_resource type="Script" uid="uid://bt874n3yawfki" path="res://scenes/Player/player.gd" id="1_gqjuk"]
+[ext_resource type="SpriteFrames" uid="uid://bo5gw23lpckyb" path="res://resources/player_sprite_frames_baby.tres" id="3_gqjuk"]
+[ext_resource type="Texture2D" uid="uid://00bm8yldqgse" path="res://assets/sprites/ui/Exclamation_Icon.png" id="4_c4h5g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
+size = Vector2(91, 78.5)
+
+[node name="Player" type="CharacterBody2D"]
+disable_mode = 2
+script = ExtResource("1_gqjuk")
+
+[node name="BattleAlert" type="Sprite2D" parent="."]
+position = Vector2(2.4999998, -100.41213)
+scale = Vector2(5, 5)
+texture = ExtResource("4_c4h5g")
+centered = false
+offset = Vector2(1, 1)
+
+[node name="AlertButton" type="Button" parent="BattleAlert"]
+anchors_preset = -1
+anchor_left = 0.034487724
+anchor_top = -0.18173194
+anchor_right = 0.034487844
+anchor_bottom = -0.18173194
+offset_left = 0.34819603
+offset_top = 3.2403708
+offset_right = 16.348194
+offset_bottom = 20.190138
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(7, 7)
+sprite_frames = ExtResource("3_gqjuk")
+animation = &"standing"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(3.5, 16.75)
+shape = SubResource("RectangleShape2D_hqtel")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="pressed" from="BattleAlert/AlertButton" to="." method="_on_alert_button_pressed"]

@@ -1,0 +1,171 @@
+[gd_scene load_steps=20 format=3 uid="uid://ds15d0y58kuxr"]
+
+[ext_resource type="Script" uid="uid://b62vodiqpdm2u" path="res://scenes/Training/strength_game.gd" id="1_hrfc0"]
+[ext_resource type="Texture2D" uid="uid://4cjfusf8fifp" path="res://assets/sprites/ui/buttons/LeftButton.png" id="2_mbsje"]
+[ext_resource type="SpriteFrames" uid="uid://bo5gw23lpckyb" path="res://resources/player_sprite_frames.tres" id="2_n1qsc"]
+[ext_resource type="Texture2D" uid="uid://w5hsvuy6h8pr" path="res://assets/sprites/ui/buttons/RigthButton.png" id="3_dpcdd"]
+[ext_resource type="Texture2D" uid="uid://yh7s0k4la210" path="res://assets/sprites/ui/buttons/BackButton.png" id="4_dpcdd"]
+[ext_resource type="Texture2D" uid="uid://dfidio32ldfd7" path="res://assets/sprites/backgounds/Background_Main.png" id="4_vp0j4"]
+[ext_resource type="Texture2D" uid="uid://jc8mrlr7lgmp" path="res://assets/sprites/backgounds/Forest_Floor_001.png" id="5_penai"]
+[ext_resource type="Texture2D" uid="uid://d3mrv7xckentd" path="res://assets/sprites/ui/Boards/ResultsBoard_001.png" id="5_vp0j4"]
+[ext_resource type="Texture2D" uid="uid://chfjyt6bqwmy4" path="res://assets/sprites/Objects/PunchingBag_001.png" id="8_penai"]
+[ext_resource type="Texture2D" uid="uid://e5u7hxxo7iet" path="res://assets/sprites/magics/Effect_001.png" id="9_61fhq"]
+[ext_resource type="Texture2D" uid="uid://bq1shrwcm372h" path="res://assets/sprites/Objects/PunchingBag_004.png" id="9_pi816"]
+[ext_resource type="Texture2D" uid="uid://tv6v0donfn25" path="res://assets/sprites/magics/Effect_002.png" id="10_4fmy1"]
+[ext_resource type="Texture2D" uid="uid://d81ug2m7sj4a" path="res://assets/sprites/Objects/PunchingBag_003.png" id="10_5mpl7"]
+[ext_resource type="Texture2D" uid="uid://bt5exbn0fn5wn" path="res://assets/sprites/magics/Effect_003.png" id="11_ivpve"]
+[ext_resource type="Texture2D" uid="uid://cfivfr45mcwoe" path="res://assets/sprites/Objects/PunchingBag_002.png" id="11_vse8s"]
+[ext_resource type="Texture2D" uid="uid://rbwolaplux63" path="res://assets/sprites/magics/Effect_004.png" id="12_dp2fp"]
+[ext_resource type="Texture2D" uid="uid://cb3euara4nc21" path="res://assets/sprites/magics/Effect_005.png" id="13_4fmy1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_26pbj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_61fhq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4fmy1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ivpve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_dp2fp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4fmy1")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_61fhq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_penai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_pi816")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5mpl7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_vse8s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_penai")
+}],
+"loop": false,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="StrengthGame" type="Node2D"]
+script = ExtResource("1_hrfc0")
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(208, 828)
+scale = Vector2(7, 7)
+sprite_frames = ExtResource("2_n1qsc")
+animation = &"standing"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BackgoudsFloor" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(360, 981)
+texture = ExtResource("5_penai")
+
+[node name="ResultsBoard" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(352, 208)
+texture = ExtResource("5_vp0j4")
+
+[node name="Tittle" type="Label" parent="CanvasLayer"]
+offset_left = 264.0
+offset_top = 189.0
+offset_right = 328.0
+offset_bottom = 222.0
+text = "Tittle"
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+offset_left = 262.0
+offset_top = 246.0
+offset_right = 473.0
+offset_bottom = 297.0
+text = "Score"
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer"]
+offset_left = 392.0
+offset_top = 190.0
+offset_right = 470.0
+offset_bottom = 225.0
+text = "Tiempo"
+
+[node name="ResultLabel" type="Label" parent="CanvasLayer"]
+offset_left = 265.0
+offset_top = 293.0
+offset_right = 362.0
+offset_bottom = 328.0
+text = "Resultado"
+
+[node name="BackgorundDevice" type="Node2D" parent="CanvasLayer"]
+
+[node name="BackgroundMain" type="Sprite2D" parent="CanvasLayer/BackgorundDevice"]
+position = Vector2(360, 640)
+texture = ExtResource("4_vp0j4")
+
+[node name="LeftButton" type="Button" parent="CanvasLayer"]
+z_index = 1
+offset_left = 92.0
+offset_top = 1120.0
+offset_right = 348.0
+offset_bottom = 1248.0
+icon = ExtResource("2_mbsje")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="RightButton" type="Button" parent="CanvasLayer"]
+z_index = 1
+offset_left = 396.0
+offset_top = 1120.0
+offset_right = 652.0
+offset_bottom = 1248.0
+icon = ExtResource("3_dpcdd")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="BackButton" type="Button" parent="CanvasLayer"]
+z_index = 1
+offset_left = 253.0
+offset_top = 1120.0
+offset_right = 509.0
+offset_bottom = 1248.0
+icon = ExtResource("4_dpcdd")
+flat = true
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="BangEffect" type="AnimatedSprite2D" parent="CanvasLayer"]
+visible = false
+z_index = 1
+position = Vector2(492, 743.00006)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_26pbj")
+frame_progress = 0.08160651
+
+[node name="PunchingBag" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(544, 660.00006)
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_61fhq")
+
+[connection signal="pressed" from="CanvasLayer/LeftButton" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/RightButton" to="." method="_on_right_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="animation_finished" from="CanvasLayer/BangEffect" to="." method="_on_bang_effect_animation_finished"]
+[connection signal="animation_finished" from="CanvasLayer/PunchingBag" to="." method="_on_punching_bag_animation_finished"]

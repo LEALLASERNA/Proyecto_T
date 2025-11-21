@@ -1,0 +1,79 @@
+[gd_resource type="SpriteFrames" load_steps=13 format=3 uid="uid://bo5gw23lpckyb"]
+
+[ext_resource type="Texture2D" uid="uid://dxb08x4fh5xrw" path="res://assets/sprites/T/#0000/Tamai0000_angry1.png" id="1_c4mrb"]
+[ext_resource type="Texture2D" uid="uid://cog0iuwsyc57l" path="res://assets/sprites/T/#0000/Tamai0000_fight1.png" id="1_xdrai"]
+[ext_resource type="Texture2D" uid="uid://ci5lslreheug4" path="res://assets/sprites/T/#0000/Tamai0000_fight2.png" id="2_b5lat"]
+[ext_resource type="Texture2D" uid="uid://niu2p2p17bq2" path="res://assets/sprites/T/#0000/Tamai0000_angry2.png" id="2_cd0ib"]
+[ext_resource type="Texture2D" uid="uid://dvbvd5qjw4bra" path="res://assets/sprites/T/#0000/Tamai0000_walk1.png" id="3_xdrai"]
+[ext_resource type="Texture2D" uid="uid://drqqsvgsjf5kn" path="res://assets/sprites/T/#0000/Tamai0000_happy1.png" id="3_y4q4s"]
+[ext_resource type="Texture2D" uid="uid://byb4iqr1750b1" path="res://assets/sprites/T/#0000/Tamai0000_walk2.png" id="4_b5lat"]
+[ext_resource type="Texture2D" uid="uid://ycs3u3e2woew" path="res://assets/sprites/T/#0000/Tamai0000_happy2.png" id="4_imak5"]
+[ext_resource type="Texture2D" uid="uid://dlwsdvobu2un0" path="res://assets/sprites/T/#0000/Tamai0000_standing.png" id="5_imak5"]
+[ext_resource type="Texture2D" uid="uid://b0v1mxpee4c0k" path="res://assets/sprites/T/#0000/Tamai0000_walk3.png" id="5_y4q4s"]
+[ext_resource type="Texture2D" uid="uid://ddxwetcwsasa5" path="res://assets/sprites/T/#0000/Tamai0000_standing1.png" id="6_c4mrb"]
+[ext_resource type="Texture2D" uid="uid://3hdosfntoqwn" path="res://assets/sprites/T/#0000/Tamai0000_walk4.png" id="6_imak5"]
+
+[resource]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_c4mrb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cd0ib")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xdrai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_b5lat")
+}],
+"loop": false,
+"name": &"fight",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_imak5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_y4q4s")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_imak5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_c4mrb")
+}],
+"loop": true,
+"name": &"standing",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_b5lat")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y4q4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_imak5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xdrai")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 4.0
+}]
