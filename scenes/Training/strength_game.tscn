@@ -19,8 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://cb3euara4nc21" path="res://assets/sprites/magics/Effect_005.png" id="13_4fmy1"]
 [ext_resource type="Texture2D" uid="uid://dl5n10m12rxwm" path="res://assets/sprites/ui/Boards/Instruction_a_Board1.png" id="18_dp2fp"]
 [ext_resource type="Texture2D" uid="uid://fdbi75yprg38" path="res://assets/sprites/ui/Boards/Instruction_a_Board2.png" id="19_clrwe"]
-[ext_resource type="Texture2D" uid="uid://cmbs3x0w8pac7" path="res://assets/sprites/ui/clouds/Cloud_01.png" id="20_826yj"]
-[ext_resource type="Texture2D" uid="uid://bu6ctqbkqqlc7" path="res://assets/sprites/ui/clouds/Cloud_02.png" id="21_0rajq"]
+[ext_resource type="Texture2D" uid="uid://cmbs3x0w8pac7" path="res://assets/sprites/ui/clouds/cloud_01.png" id="20_826yj"]
+[ext_resource type="Texture2D" uid="uid://bu6ctqbkqqlc7" path="res://assets/sprites/ui/clouds/cloud_02.png" id="21_0rajq"]
 [ext_resource type="Texture2D" uid="uid://bxs303nqmfemb" path="res://assets/sprites/ui/Backgrounds/Sky_001.png" id="22_0rajq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_826yj"]

@@ -23,8 +23,8 @@
 [ext_resource type="Texture2D" uid="uid://k48cqo0wnox4" path="res://assets/sprites/magics/Magic003.png" id="12_8scbo"]
 [ext_resource type="Texture2D" uid="uid://xgfty82wjh76" path="res://assets/sprites/ui/buttons/DefenseButton.png" id="12_peapi"]
 [ext_resource type="Texture2D" uid="uid://dccvuohfqcp7f" path="res://assets/sprites/ui/buttons/EvasionButton.png" id="13_eexbl"]
-[ext_resource type="Texture2D" uid="uid://cmbs3x0w8pac7" path="res://assets/sprites/ui/clouds/Cloud_01.png" id="24_bkdmu"]
-[ext_resource type="Texture2D" uid="uid://bu6ctqbkqqlc7" path="res://assets/sprites/ui/clouds/Cloud_02.png" id="25_i4kcb"]
+[ext_resource type="Texture2D" uid="uid://cmbs3x0w8pac7" path="res://assets/sprites/ui/clouds/cloud_01.png" id="24_bkdmu"]
+[ext_resource type="Texture2D" uid="uid://bu6ctqbkqqlc7" path="res://assets/sprites/ui/clouds/cloud_02.png" id="25_i4kcb"]
 [ext_resource type="Texture2D" uid="uid://bxs303nqmfemb" path="res://assets/sprites/ui/Backgrounds/Sky_001.png" id="26_i4kcb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sx6uo"]

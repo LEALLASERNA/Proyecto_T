@@ -14,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://yrikrk651c2l" path="res://assets/sprites/Objects/Flag_Small_03.png" id="9_smvrw"]
 [ext_resource type="Texture2D" uid="uid://b7mr164avb6b4" path="res://assets/sprites/magics/Magic002.png" id="10_3iagg"]
 [ext_resource type="Texture2D" uid="uid://k48cqo0wnox4" path="res://assets/sprites/magics/Magic003.png" id="11_2xecy"]
-[ext_resource type="Texture2D" uid="uid://cmbs3x0w8pac7" path="res://assets/sprites/ui/clouds/Cloud_01.png" id="15_eerbf"]
-[ext_resource type="Texture2D" uid="uid://bu6ctqbkqqlc7" path="res://assets/sprites/ui/clouds/Cloud_02.png" id="16_h865h"]
+[ext_resource type="Texture2D" uid="uid://cmbs3x0w8pac7" path="res://assets/sprites/ui/clouds/cloud_01.png" id="15_eerbf"]
+[ext_resource type="Texture2D" uid="uid://bu6ctqbkqqlc7" path="res://assets/sprites/ui/clouds/cloud_02.png" id="16_h865h"]
 [ext_resource type="Texture2D" uid="uid://bxs303nqmfemb" path="res://assets/sprites/ui/Backgrounds/Sky_001.png" id="17_h865h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4irpy"]

@@ -59,7 +59,7 @@ func _ready() -> void:
 	instructions.visible = true
 	
 	instructions.text = "Jump over the obstacles"
-	# Guardar Y del Player en el suelo
+
 	player_ground_y = player.global_position.y
 	
 	spawn_timer = utils.create_timer(self, initial_spawn_interval, Callable(self, "_on_spawn_timer_timeout"))
@@ -72,9 +72,11 @@ func _process(delta: float) -> void:
 	loop_clouds()
 
 func _on_start_button_pressed() -> void:
+
 	start_button.visible = false
 	jump_button.visible = true
 	
+	# Iniciar juego
 	start_game()
 
 func start_game() -> void:
@@ -95,6 +97,7 @@ func start_game() -> void:
 	update_ui()
 	
 	spawn_timer.start()
+	
 
 func _physics_process(delta: float) -> void:
 	if not game_active:
@@ -103,10 +106,8 @@ func _physics_process(delta: float) -> void:
 	## FISICA DEL JUGADOR ##
 	if not player.is_on_floor():
 		if player.velocity.y < 0:
-			# Player subiendo
 			player.velocity.y += gravity * delta
 		else:
-			# Player cayendo
 			player.velocity.y += fall_gravity * delta
 	elif player.velocity.y > 0:
 		player.velocity.y = 0
@@ -145,7 +146,7 @@ func _on_jump_button_pressed() -> void:
 		player.velocity.y = jump_force
 		player_sprite.play("standing")
 	else:
-		print("No está en el suelo _on_jump_button_pressed()")
+		print("No está en el suelo")
 
 func _on_spawn_timer_timeout() -> void:
 	if not game_active:
@@ -160,6 +161,7 @@ func spawn_obstacle() -> void:
 	var obstacle = obstacle_template.duplicate(15)
 	obstacle.visible = true
 	
+	# Usar Y fija guardada
 	var target_global = Vector2(player.global_position.x + obstacle_spawn_x, player_ground_y - player_ground_y) # sustituir por 0.0
 	var local_position = target_global - world_movement.global_position
 	obstacle.position = local_position
@@ -170,22 +172,22 @@ func spawn_obstacle() -> void:
 	obstacle_spawner.add_child(obstacle)
 
 func _on_obstacle_template_body_entered(body: Node2D):
-	if body == player:
+	if body == player:  # Comparación directa 
 		game_over()
 
 func obstacle_passed() -> void:
 	score += 1
 	world_speed += speed_increase
 	
-	# Reducce el intervalo de spawn para aumentar dificultad
+	# Reducir intervalo de spawn (hacer más difícil)
 	var new_interval = max(initial_spawn_interval - (score * 0.1), min_spawn_interval)
 	spawn_timer.wait_time = new_interval
 	
 	update_ui()
 
 func update_ui() -> void:
-	score_label.text = "Score: " + str(score)
-	speed_label.text = "Velocity: " + str(int(world_speed))
+	score_label.text = "Obstáculos: " + str(score)
+	speed_label.text = "Velocidad: " + str(int(world_speed))
 
 func game_over() -> void:
 	if not game_active:
@@ -193,7 +195,7 @@ func game_over() -> void:
 	
 	game_active = false
 	spawn_timer.stop()
-
+	
 	jump_button.visible = false
 	speed_label.visible = false
 	score_label.visible = false
@@ -213,6 +215,7 @@ func game_over() -> void:
 	
 	var evasion_gain = calculate_evasion_gain(score)
 	
+	# Mostrar resultado
 	result_label.text = "Obstacles overcome: " + str(score) + "\n"
 	result_label.text += "Evasion earned: +" + str(evasion_gain)
 	
@@ -238,32 +241,26 @@ func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/Training/training.tscn")
 
 func setup_player_sprite() -> void:
-	var sprite_path = GameData.get_sprite_frames_path()
+	player_sprite.sprite_frames = GameData.get_sprite_frames()  # ← CAMBIAR
+	player_sprite.play("standing")
+	print("🎨 Sprite del Player configurado:", GameData.evolution_stage)
 	
-	if FileAccess.file_exists(sprite_path):
-		player_sprite.sprite_frames = load(sprite_path)
-		player_sprite.play("standing")
-	else:
-		print("Sprite no encontrado: setup_player_sprite()", sprite_path)
-		var player_scene = load("res://scenes/Player/player.tscn")
-		var player_instance = player_scene.instantiate()
-		var player_animated_sprite = player_instance.get_node("AnimatedSprite2D")
-		player_sprite.sprite_frames = player_animated_sprite.sprite_frames
-		player_sprite.play("standing")
-		player_instance.queue_free()
-	
-## Para detectar el ancho de la paantalla automaticamente ##
+## Para detectar el ancho de la paantalla(Suelo) automaticamente ##
 #func detect_ground_width() -> void:
-	## Intentaa obtener el CollisionShape2D del primer suelo
+	## Intentar obtener el CollisionShape2D del primer suelo
 	#var ground_collision = ground.get_node_or_null("CollisionShape2D")
+	#
 	#if ground_collision and ground_collision.shape:
 		## Si tiene un RectangleShape2D
 		#if ground_collision.shape is RectangleShape2D:
 			#var shape = ground_collision.shape as RectangleShape2D
 			#ground_width = shape.size.x
+			#print("Ancho del suelo detectado automáticamente:", ground_width, "px")
 		#else:
+			#print("El suelo no tiene RectangleShape2D, usando valor por defecto")
 			#ground_width = 720.0
 	#else:
+		#print("No se encontró CollisionShape2D, usando valor por defecto")
 		#ground_width = 720.0
 	#
 	## Verificar que el ancho sea válido

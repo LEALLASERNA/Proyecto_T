@@ -55,18 +55,18 @@ func _ready() -> void:
 	
 	randomize_cloud_types()
 
+
 func _process(delta: float) -> void:
 	cloud_movement.position.x -= cloud_speed * delta
 	loop_clouds()
 	
 	if not game_active or not projectile_moving:
 		return
-	
+		
 	projectile.position.x -= projectile_speed * delta
 	
-	# Si el proyectil pasó más allá del Player sin ser bloqueado
 	var player_x = player_area.global_position.x
-	if projectile.position.x < player_x - 100:
+	if projectile.position.x < player_x - 100:  # Pasó 100px más allá
 		end_game()
 
 func _on_start_button_pressed() -> void:
@@ -92,6 +92,7 @@ func spawn_projectile() -> void:
 	projectile_moving = true
 	current_zone = "none"
 	projectile_sprite.play()
+	
 
 func _on_game_timer_tick() -> void:
 	if not game_active:
@@ -147,7 +148,7 @@ func _on_block_button_pressed() -> void:
 			if game_active:
 				spawn_projectile()
 	else:
-		print("No hay proyectil en zona de bloqueo _on_block_button_pressed()")
+		print("¡No hay proyectil en zona de bloqueo!")
 
 func get_points_for_zone(zone: String) -> int:
 	match zone:
@@ -186,6 +187,7 @@ func end_game() -> void:
 		
 	var defense_gain = calculate_defense_gain(score)
 	
+	# Mostrar resultado
 	result_label.text = "Score: " + str(score) + "\n"
 	result_label.text += "Defence gain: +" + str(defense_gain)
 	result_label.visible = true
@@ -195,6 +197,7 @@ func end_game() -> void:
 	back_button.visible = true
 	
 	GameData.add_defense(defense_gain)
+	
 
 func calculate_defense_gain(final_score: int) -> int:
 	if final_score >= 40:
@@ -213,26 +216,15 @@ func calculate_defense_gain(final_score: int) -> int:
 func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/Training/training.tscn")
 
-## FUNCIONES DE ANIMACIÓN DE SPRITES DEL PLAYER ##
+## FUNCIONES DE ANIMACIÓN DE SPRITES ##
 func setup_player_sprite() -> void:
-	var sprite_path = GameData.get_sprite_frames_path()
-	
-	if FileAccess.file_exists(sprite_path):
-		player_sprite.sprite_frames = load(sprite_path)
-		player_sprite.play("standing")
-	else:
-		var player_scene = load("res://scenes/Player/player.tscn")
-		var player_instance = player_scene.instantiate()
-		var player_animated_sprite = player_instance.get_node("AnimatedSprite2D")
-		player_sprite.sprite_frames = player_animated_sprite.sprite_frames
-		player_sprite.play("standing")
-		player_instance.queue_free()
+	player_sprite.sprite_frames = GameData.get_sprite_frames()  # ← CAMBIAR
+	player_sprite.play("standing")
+	print("🎨 Sprite del Player configurado:", GameData.evolution_stage)
 
 func play_player_fight_animation() -> void:
 	player_sprite.play("fight")
-	
 	await player_sprite.animation_finished
-	
 	player_sprite.play("standing")
 
 ## FUNCIONES DE ANIMACION DE NUBE ##

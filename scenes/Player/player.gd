@@ -33,14 +33,12 @@ var evolution_checked_this_session: bool = false
 
 # Sistema de alarma de combate
 var battle_timer: Timer
-var min_battle_interval: float = 30  
-var max_battle_interval: float = 31  
-var alert_offset_y: float = -100.0 
+var min_battle_interval: float = 10 
+var max_battle_interval: float = 5 
+var alert_offset_y: float = -100.0
 var battle_alert_visible: bool = false
 
 func _ready() -> void:
-	print("👤 Player inicializado")
-	
 	# Cargar stats desde GameData
 	strength = GameData.strength
 	defence = GameData.defense
@@ -77,6 +75,7 @@ func _ready() -> void:
 
 ## ========== SISTEMA DE HAMBRE Y FELICIDAD ========== ##
 func _on_hunger_timer_timeout() -> void:
+	# Restar hambre
 	hunger -= 1
 	hunger = clamp(hunger, 0, max_hunger)
 	update_hunger_bar()
@@ -97,10 +96,13 @@ func _on_hunger_timer_timeout() -> void:
 		happiness -= 10
 		update_happiness_bar()
 	
+	# Limitar felicidad
 	happiness = clamp(happiness, 0, max_happiness)
 	
 	GameData.set_hunger(hunger)
 	GameData.set_happiness(happiness)
+	
+	print("Hambre:", hunger, "| Felicidad:", happiness)
 
 func update_hunger_bar() -> void:
 	if ui_player:
@@ -111,9 +113,11 @@ func update_happiness_bar() -> void:
 		ui_player.set_happiness(happiness)
 
 func feed() -> void:
+	# Aumentar el hambre
 	hunger += food_amount
 	hunger = clamp(hunger, 0, max_hunger)
 	
+	# Aumentar la felicidad
 	happiness += happiness_from_food
 	happiness = clamp(happiness, 0, max_happiness)
 	
@@ -167,9 +171,9 @@ func modify_stat(stat_name: String, amount: int) -> void:
 			luck += amount
 			luck = clamp(luck, 0, 100)
 		_:
-			print("Stat no reconocida: modify_stat()", stat_name)
+			print("⚠️ Stat no reconocida:", stat_name)
 	
-	print("OK", stat_name, "modificada en", amount, "(Nueva:", get(stat_name), ")")
+	print(stat_name, "modificada en", amount, "(Nueva:", get(stat_name), ")")
 
 func set_stat(stat_name: String, value: int) -> void:
 	match stat_name:
@@ -184,21 +188,23 @@ func set_stat(stat_name: String, value: int) -> void:
 		_:
 			print("Stat no reconocida:", stat_name)
 	
-	print("OK", stat_name, "establecida en", value)
+	print(stat_name, "establecida en", value)
 
 func level_up(strength_bonus: int, defence_bonus: int, evasion_bonus: int, luck_bonus: int) -> void:
 	strength += strength_bonus
 	defence += defence_bonus
 	evasion = clamp(evasion + evasion_bonus, 0, 100)
 	luck = clamp(luck + luck_bonus, 0, 100)
+	
 	print_stats()
 
 ## ========== SISTEMA TRIGGER BATALLA ========== ##
 func setup_battle_system() -> void:
 	battle_alert.visible = false
-
+	
 	var interval = get_random_battle_interval()
 	battle_timer = utils.create_timer(self, interval, Callable(self, "_on_battle_timer_timeout"))
+	
 
 func get_random_battle_interval() -> float:
 	return randf_range(min_battle_interval, max_battle_interval)
@@ -228,10 +234,10 @@ func hide_battle_alert() -> void:
 	if ui_player:
 		ui_player.resume_ground()
 		
-	# Reiniciar timer para próxima batalla
 	var interval = get_random_battle_interval()
 	battle_timer.wait_time = interval
 	battle_timer.start()
+	print("Próxima batalla en:", interval, "segundos")
 
 func _on_alert_button_pressed() -> void:
 	hide_battle_alert()
@@ -247,11 +253,9 @@ func animate_alert_bounce() -> void:
 ## ========== SISTEMA DE EVOLUCION ========== ##
 
 func load_sprite_for_current_stage() -> void:
-	var sprite_path = GameData.get_sprite_frames_path()
-	animated_sprite.sprite_frames = load(sprite_path)
+	animated_sprite.sprite_frames = GameData.get_sprite_frames()
 	animated_sprite.play("walk")
-	
-	print("Sprite cargado para etapa: load_sprite_for_current_stage()", GameData.evolution_stage)
+	print("🎨 Sprite cargado para etapa:", GameData.evolution_stage)
 
 func check_for_evolution() -> void:
 	if evolution_checked_this_session:
@@ -260,11 +264,13 @@ func check_for_evolution() -> void:
 	evolution_checked_this_session = true
 	
 	if GameData.check_evolution_conditions():
+		
 		await get_tree().create_timer(0.5).timeout
 		
 		start_evolution_animation()
 
 func start_evolution_animation() -> void:
+	
 	emit_signal("evolution_triggered")
 	
 	set_physics_process(false)
@@ -274,8 +280,8 @@ func start_evolution_animation() -> void:
 	GameData.evolve_to("young")
 	load_sprite_for_current_stage()
 	
-	# Reactivar movimiento
 	set_physics_process(true)
+	
 
 func play_evolution_sequence() -> void:
 	animated_sprite.play("standing")

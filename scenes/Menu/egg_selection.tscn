@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxqlihnjchjfl"]
+
+[ext_resource type="Texture2D" uid="uid://dsfjucjtsk3kt" path="res://assets/sprites/T/#0000/TamaiEgg0.png" id="1_u3cqa"]
+[ext_resource type="Script" uid="uid://cftedlq2deix2" path="res://scenes/Menu/egg_selection.gd" id="1_vsgmg"]
+[ext_resource type="Texture2D" uid="uid://bpi6g15uwq7t7" path="res://assets/sprites/T/#1000/TamaiEgg1.png" id="2_vsgmg"]
+
+[node name="EggSelection" type="CanvasLayer"]
+script = ExtResource("1_vsgmg")
+
+[node name="Background" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.48452926, 0.48452926, 0.58383155, 1)
+
+[node name="TitleLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -177.0
+offset_top = 200.0
+offset_right = 177.0
+offset_bottom = 260.0
+grow_horizontal = 2
+text = "Choose your egg..."
+horizontal_alignment = 1
+
+[node name="Egg1Button" type="TextureButton" parent="."]
+anchors_preset = -1
+anchor_left = 0.381
+anchor_top = 0.609
+anchor_right = 0.381
+anchor_bottom = 0.609
+offset_left = -80.32001
+offset_top = -80.51996
+offset_right = -48.320007
+offset_bottom = -48.51996
+scale = Vector2(5, 5)
+texture_normal = ExtResource("1_u3cqa")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Egg2Button" type="TextureButton" parent="."]
+anchors_preset = -1
+anchor_left = 0.76500005
+anchor_top = 0.60400003
+anchor_right = 0.76500005
+anchor_bottom = 0.60400003
+offset_left = -79.80005
+offset_top = -80.119995
+offset_right = -47.80005
+offset_bottom = -48.119995
+scale = Vector2(5, 5)
+texture_normal = ExtResource("2_vsgmg")
+ignore_texture_size = true
+stretch_mode = 5

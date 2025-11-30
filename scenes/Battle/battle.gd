@@ -59,7 +59,6 @@ var cloud_spacing: float = 400.0
 enum Action { STRENGTH, DEFENSE, EVASION }
 
 func _ready() -> void:
-
 	player_strength = GameData.strength
 	player_defense = GameData.defense
 	player_evasion = GameData.evasion
@@ -93,7 +92,7 @@ func _process(delta: float) -> void:
 	
 	if not projectiles_moving:
 		return
-
+	
 	if player_projectile.visible:
 		player_projectile.position.x += projectile_speed * delta
 	
@@ -101,19 +100,16 @@ func _process(delta: float) -> void:
 		enemy_projectile.position.x -= projectile_speed * delta
 
 func generate_enemy() -> void:
-	# Generar enemy con stats aleatorias
 	enemy_strength = randi_range(5, 15)
 	enemy_defense = randi_range(5, 15)
 	enemy_evasion = randi_range(5, 15)
 	enemy_hp = 10
 	
-	print("👾 Enemy generado:")
 	print("   Fuerza:", enemy_strength)
 	print("   Defensa:", enemy_defense)
 	print("   Evasión:", enemy_evasion)
 
 func update_ui() -> void:
-	# Actualizar sprites de HP en lugar de labels
 	update_health_sprite(player_health_sprite, player_hp)
 	update_health_sprite(enemy_health_sprite, enemy_hp)
 	
@@ -180,9 +176,10 @@ func launch_projectiles(player_action: Action, enemy_action: Action) -> void:
 	player_projectile.position = player_projectile_start_pos
 	enemy_projectile.position = enemy_projectile_start_pos
 	
+	# Seleccionar animación según acción
 	var player_anim = get_action_animation(player_action)
 	var enemy_anim = get_action_animation(enemy_action)
-
+	
 	player_projectile_sprite.play(player_anim)
 	enemy_projectile_sprite.play(enemy_anim)
 	
@@ -208,10 +205,12 @@ func handle_projectile_collision() -> void:
 	
 	if combat_result == "player":
 		enemy_projectile.visible = false
+		
 		continue_projectile_to_target("player")
 		
 	elif combat_result == "enemy":
 		player_projectile.visible = false
+		
 		continue_projectile_to_target("enemy")
 		
 	else:
@@ -232,7 +231,7 @@ func continue_projectile_to_target(winner: String) -> void:
 		
 		player_projectile.visible = false
 		
-	else:
+	else: 
 		var target_pos = player_projectile_start_pos
 		
 		while enemy_projectile.visible and enemy_projectile.position.x > target_pos.x:
@@ -241,6 +240,7 @@ func continue_projectile_to_target(winner: String) -> void:
 			
 		player_sprite.play("angry")
 		enemy_sprite.play("happy")
+		
 		enemy_projectile.visible = false
 	
 	projectiles_moving = false
@@ -283,19 +283,14 @@ func determine_winner(player_action: Action, enemy_action: Action) -> String:
 	if player_action == enemy_action:
 		return "draw"
 	
-	# Fuerza gana a Evasión
 	if player_action == Action.STRENGTH and enemy_action == Action.EVASION:
 		return "player"
 	if enemy_action == Action.STRENGTH and player_action == Action.EVASION:
 		return "enemy"
-	
-	# Defensa gana a Fuerza
 	if player_action == Action.DEFENSE and enemy_action == Action.STRENGTH:
 		return "player"
 	if enemy_action == Action.DEFENSE and player_action == Action.STRENGTH:
 		return "enemy"
-	
-	# Evasión gana a Defensa
 	if player_action == Action.EVASION and enemy_action == Action.DEFENSE:
 		return "player"
 	if enemy_action == Action.EVASION and player_action == Action.DEFENSE:
@@ -373,6 +368,7 @@ func end_battle() -> void:
 	result_label.visible = false
 	
 	if player_hp <= 0:
+		# Player pierde
 		player_sprite.play("angry")
 		enemy_sprite.play("happy")
 		
@@ -380,6 +376,7 @@ func end_battle() -> void:
 		congratulation_label.text = "ENEMY WINS"
 		
 	else:
+		# Player gana
 		player_sprite.play("happy")
 		enemy_sprite.play("angry")
 		
@@ -398,19 +395,14 @@ func update_health_sprite(health_sprite: AnimatedSprite2D, hp: int) -> void:
 	
 	if health_sprite.sprite_frames.has_animation(animation_name):
 		health_sprite.play(animation_name)
-		print("HP:", animation_name)
+		print("HP actualizado a:", animation_name)
 	else:
-		print("Animación no encontrada: update_health_sprite()", animation_name)
+		print("Animación no encontrada:", animation_name)
 
 func setup_player_sprite() -> void:
-	var sprite_path = GameData.get_sprite_frames_path()
-	
-	if FileAccess.file_exists(sprite_path):
-		player_sprite.sprite_frames = load(sprite_path)
-		player_sprite.play("standing")
-	else:
-		player_sprite.play("standing")
-		
+	player_sprite.sprite_frames = GameData.get_sprite_frames()
+	player_sprite.play("standing")
+
 ## FUNCIONES DEL MOVIMIENTO DE LAS NUVES ##
 func loop_clouds() -> void:
 	var clouds = [cloud1, cloud2]

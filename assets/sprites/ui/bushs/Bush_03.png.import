@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ue1qxvwyed71"
-path="res://.godot/imported/Bush_03.png-d3ae560fe834e4d5d5925f751a9dc339.ctex"
+path="res://.godot/imported/bush_03.png-3f7133bda230ff9263d947f178021529.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ui/bushs/Bush_03.png"
-dest_files=["res://.godot/imported/Bush_03.png-d3ae560fe834e4d5d5925f751a9dc339.ctex"]
+source_file="res://assets/sprites/ui/bushs/bush_03.png"
+dest_files=["res://.godot/imported/bush_03.png-3f7133bda230ff9263d947f178021529.ctex"]
 
 [params]
 

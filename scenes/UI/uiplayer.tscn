@@ -12,11 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://jc8mrlr7lgmp" path="res://assets/sprites/backgounds/Forest_Floor_001.png" id="10_m70ty"]
 [ext_resource type="Texture2D" uid="uid://oro1nyons621" path="res://assets/sprites/ui/buttons/TrainerButton.png" id="11_se8cr"]
 [ext_resource type="Texture2D" uid="uid://bh4qaxhnj20p1" path="res://assets/sprites/ui/buttons/FeedButton.png" id="12_dvv7c"]
-[ext_resource type="Texture2D" uid="uid://cmbs3x0w8pac7" path="res://assets/sprites/ui/clouds/Cloud_01.png" id="13_dvv7c"]
-[ext_resource type="Texture2D" uid="uid://bu6ctqbkqqlc7" path="res://assets/sprites/ui/clouds/Cloud_02.png" id="14_c1e5k"]
-[ext_resource type="Texture2D" uid="uid://chqkt3d1bi5cd" path="res://assets/sprites/ui/bushs/Bush_01.png" id="15_14bs3"]
-[ext_resource type="Texture2D" uid="uid://p6rhg32rjhi0" path="res://assets/sprites/ui/bushs/Bush_02.png" id="16_3orsu"]
-[ext_resource type="Texture2D" uid="uid://ue1qxvwyed71" path="res://assets/sprites/ui/bushs/Bush_03.png" id="17_jh01r"]
+[ext_resource type="Texture2D" uid="uid://cmbs3x0w8pac7" path="res://assets/sprites/ui/clouds/cloud_01.png" id="13_dvv7c"]
+[ext_resource type="Texture2D" uid="uid://bu6ctqbkqqlc7" path="res://assets/sprites/ui/clouds/cloud_02.png" id="14_c1e5k"]
+[ext_resource type="Texture2D" uid="uid://chqkt3d1bi5cd" path="res://assets/sprites/ui/bushs/bush_01.png" id="15_14bs3"]
+[ext_resource type="Texture2D" uid="uid://p6rhg32rjhi0" path="res://assets/sprites/ui/bushs/bush_02.png" id="16_3orsu"]
+[ext_resource type="Texture2D" uid="uid://ue1qxvwyed71" path="res://assets/sprites/ui/bushs/bush_03.png" id="17_jh01r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m70ty"]
 size = Vector2(721, 54)

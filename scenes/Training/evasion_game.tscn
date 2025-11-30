@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://yh7s0k4la210" path="res://assets/sprites/ui/buttons/BackButton.png" id="4_rst5h"]
 [ext_resource type="Texture2D" uid="uid://dfidio32ldfd7" path="res://assets/sprites/backgounds/BackgroundDevice.png" id="5_7idru"]
 [ext_resource type="Texture2D" uid="uid://xp34w7wbuj17" path="res://assets/sprites/Objects/Cartel_01.png" id="5_mqcj6"]
-[ext_resource type="Texture2D" uid="uid://cmbs3x0w8pac7" path="res://assets/sprites/ui/clouds/Cloud_01.png" id="10_fu8mp"]
-[ext_resource type="Texture2D" uid="uid://bu6ctqbkqqlc7" path="res://assets/sprites/ui/clouds/Cloud_02.png" id="11_x1b72"]
+[ext_resource type="Texture2D" uid="uid://cmbs3x0w8pac7" path="res://assets/sprites/ui/clouds/cloud_01.png" id="10_fu8mp"]
+[ext_resource type="Texture2D" uid="uid://bu6ctqbkqqlc7" path="res://assets/sprites/ui/clouds/cloud_02.png" id="11_x1b72"]
 [ext_resource type="Texture2D" uid="uid://bxs303nqmfemb" path="res://assets/sprites/ui/Backgrounds/Sky_001.png" id="12_x1b72"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7idru"]

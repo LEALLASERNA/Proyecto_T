@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="TAMAI"
-run/main_scene="uid://biru6kbioe6dg"
+run/main_scene="uid://dq4gtiihcjhd7"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://dob45g0ohiury"
 
 [autoload]
 

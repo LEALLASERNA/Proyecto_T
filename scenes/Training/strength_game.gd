@@ -39,7 +39,6 @@ func _ready() -> void:
 	seconds_label.visible = false
 	score_label.visible = false
 	
-	
 	game_timer = utils.create_timer(self, 0.1, Callable(self, "_on_game_timer_tick"))
 	game_timer.stop()
 	
@@ -77,6 +76,7 @@ func randomize_single_cloud(cloud: Node2D) -> void:
 			preload("res://assets/sprites/ui/clouds/cloud_02.png")
 		]
 		cloud.texture = cloud_textures[randi() % 2]
+
 func prepare_game() -> void:
 	# Preparar variables iniciales
 	score = 0
@@ -91,7 +91,7 @@ func prepare_game() -> void:
 func start_game() -> void:
 	game_active = true
 	
-	game_timer.start() 
+	game_timer.start()
 	
 	time_label.visible = true
 	seconds_label.visible = true
@@ -117,7 +117,7 @@ func instruction_effect() -> void:
 func _on_left_button_pressed() -> void:
 	if not game_active and next_button == "left":
 		instruction_label.visible = false
-		start_game() 
+		start_game()  # ← Iniciar el juego
 		instruction_board.visible = false
 	if not game_active:
 		return
@@ -131,7 +131,7 @@ func _on_left_button_pressed() -> void:
 		next_button = "right"
 		highlight_next_button()
 	else:
-		print("Error en _on_left_button_pressed()")
+		print("¡Error! Debes pulsar el botón DERECHO")
 
 func _on_right_button_pressed() -> void:
 	if not game_active:
@@ -146,8 +146,7 @@ func _on_right_button_pressed() -> void:
 		next_button = "left"
 		highlight_next_button()
 	else:
-		# Incorrecto - penalización
-		print("Error en _on_rigth_button_pressed()")
+		print("¡Error! Debes pulsar el botón IZQUIERDO")
 
 func play_button_effect() -> void:
 	button_effect.frame = 0
@@ -160,13 +159,12 @@ func play_punching_bag_effect() -> void:
 	puchingbag_effect.play()
 
 func highlight_next_button() -> void:
-	# Resalta el botón que debe pulsarse
 	if next_button == "left":
 		left_button.modulate = Color(1, 1, 0)  
-		right_button.modulate = Color(1, 1, 1) 
+		right_button.modulate = Color(1, 1, 1)  
 	else:
 		left_button.modulate = Color(1, 1, 1) 
-		right_button.modulate = Color(1, 1, 0) 
+		right_button.modulate = Color(1, 1, 0)
 
 func end_game() -> void:
 	game_active = false
@@ -182,7 +180,7 @@ func end_game() -> void:
 	await get_tree().create_timer(2.0).timeout
 	
 	var strength_gain = calculate_strength_gain(score)
-	
+
 	score_label.visible = true
 	result_label.text += "Score: " + str(score) + "\n"
 	result_label.text += "Strength gained: +" + str(strength_gain)
@@ -195,38 +193,29 @@ func end_game() -> void:
 
 func calculate_strength_gain(final_score: int) -> int:
 	if final_score >= 50:
-		return 5  
+		return 5
 	elif final_score >= 40:
-		return 4 
+		return 4
 	elif final_score >= 30:
-		return 3  
+		return 3
 	elif final_score >= 20:
-		return 2 
+		return 2
 	elif final_score >= 10:
-		return 1 
+		return 1
 	else:
-		return 0  
+		return 0
 
 func apply_strength_gain(amount: int) -> void:
 	print("Se debería aumentar la fuerza en:", amount)
-	# TODO: Implementa sistema de guardado de stats
+	# TODO: Implementar sistema de guardado de stats
 
 func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/Training/training.tscn")
 
 func setup_player_sprite() -> void:
-	var sprite_path = GameData.get_sprite_frames_path()
-	
-	if FileAccess.file_exists(sprite_path):
-		player_sprite.sprite_frames = load(sprite_path)
-		player_sprite.play("standing")
-	else:
-		var player_scene = load("res://scenes/Player/player.tscn")
-		var player_instance = player_scene.instantiate()
-		var player_animated_sprite = player_instance.get_node("AnimatedSprite2D")
-		player_sprite.sprite_frames = player_animated_sprite.sprite_frames
-		player_sprite.play("standing")
-		player_instance.queue_free()
+	player_sprite.sprite_frames = GameData.get_sprite_frames()
+	player_sprite.play("standing")
+	print("🎨 Sprite del Player configurado:", GameData.evolution_stage)
 
 func play_player_fight_animation() -> void:
 	player_sprite.play("fight")
